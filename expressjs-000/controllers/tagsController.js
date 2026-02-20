@@ -1,7 +1,10 @@
 const tags = [];
+let counter = 0;
 
 const getTags = (req, res) => {
-  res.json({ tags });
+  tags.push(counter);
+  counter++;
+  res.json({ tags: tags.join(",")});
 };
 
 // Implement other controllers related to tags
