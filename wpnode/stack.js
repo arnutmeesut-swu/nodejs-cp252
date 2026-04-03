@@ -1,0 +1,80 @@
+class StackArray {
+  constructor() {
+    this.items = [];
+  }
+
+  push(element) {
+    console.time("Push settime");
+    this.items.push(element);
+    console.timeEnd("Push settime");
+  }
+
+  pop() {
+    return this.items.pop();
+  }
+
+  peek() {
+    return this.items[this.items.length - 1];
+  }
+
+  isEmpty() {
+    return this.items.length === 0;
+  }
+
+  size() {
+    return this.items.length;
+  }
+
+  clear() {
+    this.items = [];
+  }
+
+  toArray() {
+    return this.items;
+  }
+
+  toString() {
+    return this.items.toString();
+  }
+
+  getMax() {
+    console.time("getMax settime");
+    let elementMax = this.items[0];
+    for (let i = 0; i < this.size(); i++) {
+      if (this.items[i] > elementMax) {
+        elementMax == this.items[i];
+      }
+    }
+    console.timeEnd("getMax settime");
+    return elementMax;
+  }
+
+
+  getMin() {
+    let elementMin = this.items[0];
+    for (let j = 0; j < this.size(); j++) {
+      if (this.items[j] < elementMin) {
+        elementMin == this.items[j];
+      }
+    }
+    return elementMin;
+  }
+}
+
+module.exports = StackArray;
+
+/*
+  Push settime: 0.01ms
+  Push settime: 0.004ms
+  Push settime: 0.005ms
+  Push settime: 0.004ms
+  Push settime: 0.014ms
+  Push settime: 0.044ms
+  Push settime: 0.004ms
+  Push settime: 0.004ms
+  Push settime: 0.111ms
+  Push settime: 0.008ms
+  getMax settime: 0.048ms
+  pop
+  getMax settime: 0.006ms
+*/
